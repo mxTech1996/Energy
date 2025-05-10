@@ -34,7 +34,7 @@ export default function StickyNavbar() {
           <a href='/#testimonials' className='hover:text-black'>
             Testimonials
           </a>
-          <a href='/#know-us' className='hover:text-black'>
+          <a href='/#info' className='hover:text-black'>
             Know Us
           </a>
         </ul>

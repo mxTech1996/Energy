@@ -6,7 +6,7 @@ const items = dataSite.info;
 
 export default function Info() {
   return (
-    <section className='bg-white py-20 px-6 lg:px-16'>
+    <section id='info' className='bg-white py-20 px-6 lg:px-16'>
       <div className='max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center'>
         {/* Text Content */}
         <div>

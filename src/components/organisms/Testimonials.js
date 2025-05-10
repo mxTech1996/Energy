@@ -21,7 +21,7 @@ export default function TestimonialsCarousel() {
       .toUpperCase();
 
   return (
-    <section className='bg-gray-50 py-16 px-6'>
+    <section id='testimonials' className='bg-gray-50 py-16 px-6'>
       <div className='max-w-4xl mx-auto text-center'>
         <blockquote className='text-2xl font-semibold text-gray-800 mb-6'>
           &quot;{current.description}&quot;

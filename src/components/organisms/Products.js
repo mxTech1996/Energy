@@ -8,7 +8,7 @@ const products = dataSite.products;
 export default function ProductsSection() {
   const { handleAddOrRemoveProduct, validateProductInCart } = useCart();
   return (
-    <section className='px-6 py-16 bg-gray-50'>
+    <section id='portfolio' className='px-6 py-16 bg-gray-50'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-3xl font-bold mb-4'>
           Explore these case studies to gain insights into our consulting
