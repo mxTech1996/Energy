@@ -18,7 +18,10 @@ export default function Hero() {
 
         {/* CTA Button */}
         <div className='flex items-start lg:justify-end'>
-          <button className='bg-white border border-gray-300 text-gray-900 font-medium py-3 px-6 rounded-full shadow hover:shadow-md transition'>
+          <button
+            onClick={() => (window.location.href = '/more-information')}
+            className='bg-white border border-gray-300 text-gray-900 font-medium py-3 px-6 rounded-full shadow hover:shadow-md transition'
+          >
             Get in touch
           </button>
         </div>

@@ -21,7 +21,7 @@ export default function AdminServicesGrid() {
         </div>
 
         {/* Grid */}
-        <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-2'>
+        <div id='services' className='grid gap-6 md:grid-cols-2 lg:grid-cols-2'>
           {services.map((item, index) => (
             <div
               key={+index}
