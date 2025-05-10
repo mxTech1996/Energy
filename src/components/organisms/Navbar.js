@@ -1,52 +1,55 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import { navData } from '@/data';
-import { Navbar as NavbarV2, theme } from 'ecommerce-mxtech';
-import { useInformation } from '@/store/useInformation';
 
-const { useToken } = theme;
+import { dataSite } from '@/data';
+import { useCart } from 'ecommerce-mxtech';
+import Link from 'next/link';
 
-const Navbar = () => {
-  const { dataSite } = useInformation();
-  const router = useRouter();
-  const {
-    token: { colorPrimary },
-  } = useToken();
-
+//Cart icon
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+export default function StickyNavbar() {
+  const { products } = useCart();
   return (
-    <NavbarV2
-      linksProps={{
-        variant: 'underline',
-        align: 'left',
-      }}
-      textColor='black'
-      withLogo={true}
-      imageProps={{
-        src: dataSite.iconImage,
-        className: 'w-28',
-      }}
-      styleTitle={{
-        fontWeight: 'bold',
-        fontSize: 16,
-        color: 'black',
-      }}
-      links={navData}
-      onClickProduct={(product) => {
-        router.push(`/product/${product.id}`);
-      }}
-      buttonCartProps={{
-        onClick: () => router.push('/my-cart'),
-      }}
-      buttonContactProps={{
-        onClick: () => router.push('/more-information'),
-      }}
-      onRedirect={(path) => router.push(path)}
-      styleHeader={{
-        height: 100,
-        color: 'black',
-      }}
-    />
-  );
-};
+    <header className='sticky top-0 z-50 bg-white shadow-sm'>
+      <nav className='flex justify-between items-center px-6 md:px-12 py-4 bg-gradient-to-r from-white to-yellow-50'>
+        {/* Logo */}
+        <div className='flex items-center'>
+          <img
+            src={dataSite.iconImage}
+            alt='Logo'
+            className='w-12 h-12 mr-2 rounded-full'
+          />
+        </div>
+        <div className='text-xl font-bold tracking-tight'>
+          Energy<sup>®</sup>
+        </div>
 
-export default Navbar;
+        {/* Links */}
+        <ul className='hidden md:flex gap-8 text-sm text-gray-500 font-medium items-center'>
+          <a href='/#services' className='hover:text-black'>
+            Services
+          </a>
+          <a href='/#portfolio' className='hover:text-black'>
+            Portfolio
+          </a>
+          <a href='/#testimonials' className='hover:text-black'>
+            Testimonials
+          </a>
+          <a href='/#know-us' className='hover:text-black'>
+            Know Us
+          </a>
+        </ul>
+
+        {/* Cart */}
+
+        <div className='hidden md:flex items-center gap-4'>
+          <Link href={`/my-cart`} className='relative'>
+            <AiOutlineShoppingCart className='text-2xl text-gray-500 hover:text-black cursor-pointer' />
+            <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center'>
+              {products.length}
+            </span>
+          </Link>
+        </div>
+      </nav>
+    </header>
+  );
+}
